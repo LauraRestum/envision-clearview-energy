@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # import-images.sh
 # Pulls the chosen Envision photos from the capabilities repo, compresses them,
-# and writes them into public/images/ with clean, deck-ready names.
+# and writes them into images/ with clean, deck-ready names.
 #
 # Run from the root of the clearview repo:  bash scripts/import-images.sh
 # Requires ImageMagick (magick or convert) and curl.
@@ -9,7 +9,7 @@
 set -euo pipefail
 
 RAW="https://raw.githubusercontent.com/LauraRestum/envision-capabilites-services/main/images"
-OUT="public/images"
+OUT="images"
 mkdir -p "$OUT" .cache_src
 
 # ImageMagick v7 uses `magick`, v6 uses `convert`
