@@ -16,6 +16,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── ACCESSIBILITY UTILITIES ── */
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .skip-link {
+      position: absolute; left: 1rem; top: -4rem;
+      z-index: 200;
+      background: var(--green); color: #001852;
+      padding: 0.65rem 1.1rem; border-radius: 2px;
+      font-weight: 700; font-size: 0.72rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: 1rem; }
+    /* Visible keyboard focus indicator */
+    a:focus-visible,
+    button:focus-visible,
+    .nav-arrow:focus-visible,
+    .nav-dot:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     :root {
       --blue: #003087;
       --blue-dark: #001852;
@@ -807,26 +846,31 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to slide content</a>
+
 <!-- ════════════════════════════════════════ NAV ════════════════════════════════════════ -->
-<nav>
+<nav aria-label="Slide navigation">
   <div class="logo"><img src="/images/envision-hand-logo.png" alt="Envision" style="height: 30px; display: block;"></div>
   <div class="nav-controls">
-    <div class="nav-dots" id="navDots"></div>
-    <div class="slide-counter">
+    <div class="nav-dots" id="navDots" role="group" aria-label="Go to a specific slide"></div>
+    <div class="slide-counter" aria-hidden="true">
       <span class="current" id="currentSlide">01</span> / <span id="totalSlides">09</span>
     </div>
     <div class="nav-arrows">
-      <button class="nav-arrow" id="prevBtn" onclick="changeSlide(-1)">←</button>
-      <button class="nav-arrow" id="nextBtn" onclick="changeSlide(1)">→</button>
+      <button class="nav-arrow" id="prevBtn" type="button" onclick="changeSlide(-1)" aria-label="Previous slide"><span aria-hidden="true">←</span></button>
+      <button class="nav-arrow" id="nextBtn" type="button" onclick="changeSlide(1)" aria-label="Next slide"><span aria-hidden="true">→</span></button>
     </div>
   </div>
 </nav>
 
+<!-- Screen-reader announcement of the current slide -->
+<p id="slideAnnouncer" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+
 <!-- ════════════════════════════════════════ SLIDES ════════════════════════════════════════ -->
-<div class="slides-wrapper">
+<main id="main" class="slides-wrapper" aria-roledescription="carousel" aria-label="Envision and Clearview Energy partnership proposal">
 
   <!-- ───── SLIDE 1: HERO ───── -->
-  <div class="slide active" data-slide="0">
+  <div class="slide active" data-slide="0" role="group" aria-roledescription="slide" aria-label="Slide 1 of 9">
     <div class="slide-bg" style="background: linear-gradient(135deg, #001852 0%, #003087 40%, #000d2e 100%);">
       <div class="hero-slideshow">
         <img class="hero-bg-img" src="/images/dallas-campus-exterior.jpg" alt="">
@@ -856,7 +900,7 @@
   </div>
 
   <!-- ───── SLIDE 2: WHO ENVISION IS ───── -->
-  <div class="slide" data-slide="1">
+  <div class="slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="Slide 2 of 9">
     <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
     <div class="slide-grain"></div>
     <div class="slide-content">
@@ -901,7 +945,7 @@
   </div>
 
   <!-- ───── SLIDE 3: WHY ENVISION FITS CLEARVIEW ───── -->
-  <div class="slide" data-slide="2">
+  <div class="slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="Slide 3 of 9">
     <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
     <div class="slide-grain"></div>
     <div class="slide-content">
@@ -911,7 +955,7 @@
 
       <div class="product-cards">
         <div class="product-card">
-          <div class="product-icon">☎</div>
+          <div class="product-icon" aria-hidden="true">☎</div>
           <h3>Contact Center</h3>
           <p>The world-class customer care your brand promises, delivered by trained U.S. agents who handle enrollment, support, and retention.</p>
           <div class="product-meta">
@@ -919,7 +963,7 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-icon">⎙</div>
+          <div class="product-icon" aria-hidden="true">⎙</div>
           <h3>Commercial Print &amp; Storefront</h3>
           <p>Enrollment kits, direct mail, and field collateral produced on the same campus, fronted by a walk-in print storefront.</p>
           <div class="product-meta">
@@ -927,7 +971,7 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-icon">❖</div>
+          <div class="product-icon" aria-hidden="true">❖</div>
           <h3>Foundation Partnership</h3>
           <p>The kind of local, visible community organization Clearview already chooses to back, right in your own market.</p>
           <div class="product-meta">
@@ -941,7 +985,7 @@
   </div>
 
   <!-- ───── SLIDE 4: CONTACT CENTER ───── -->
-  <div class="slide" data-slide="3">
+  <div class="slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="Slide 4 of 9">
     <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
     <div class="slide-grain"></div>
     <div class="slide-content">
@@ -983,7 +1027,7 @@
   </div>
 
   <!-- ───── SLIDE 5: PRINT + STOREFRONT ───── -->
-  <div class="slide" data-slide="4">
+  <div class="slide" data-slide="4" role="group" aria-roledescription="slide" aria-label="Slide 5 of 9">
     <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
     <div class="slide-grain"></div>
     <div class="slide-content">
@@ -993,7 +1037,7 @@
 
       <div class="product-cards">
         <div class="product-card">
-          <div class="product-icon">▣</div>
+          <div class="product-icon" aria-hidden="true">▣</div>
           <h3>The Print Storefront</h3>
           <p>A walk-in, order-online storefront for short-run and on-demand print. The front door to Envision's full production floor, and the easiest place for your team to start.</p>
           <div class="product-meta">
@@ -1001,7 +1045,7 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-icon">✉</div>
+          <div class="product-icon" aria-hidden="true">✉</div>
           <h3>Direct Mail &amp; Enrollment Kits</h3>
           <p>High-volume direct mail, welcome packets, and enrollment materials supporting residential and commercial customer acquisition.</p>
           <div class="product-meta">
@@ -1009,7 +1053,7 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-icon">◧</div>
+          <div class="product-icon" aria-hidden="true">◧</div>
           <h3>Field &amp; Branded Collateral</h3>
           <p>Door-to-door and event materials, signage, and branded print that carry the Clearview look consistently into the field.</p>
           <div class="product-meta">
@@ -1030,7 +1074,7 @@
   </div>
 
   <!-- ───── SLIDE 6: FOUNDATION / COMMUNITY ───── -->
-  <div class="slide" data-slide="5">
+  <div class="slide" data-slide="5" role="group" aria-roledescription="slide" aria-label="Slide 6 of 9">
     <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
     <div class="slide-grain"></div>
     <div class="slide-content">
@@ -1061,7 +1105,7 @@
   </div>
 
   <!-- ───── SLIDE 7: THE ENVISION DIFFERENCE ───── -->
-  <div class="slide" data-slide="6">
+  <div class="slide" data-slide="6" role="group" aria-roledescription="slide" aria-label="Slide 7 of 9">
     <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
     <div class="slide-grain"></div>
     <div class="slide-content">
@@ -1102,7 +1146,7 @@
   </div>
 
   <!-- ───── SLIDE 8: PARTNERSHIP MODEL ───── -->
-  <div class="slide" data-slide="7">
+  <div class="slide" data-slide="7" role="group" aria-roledescription="slide" aria-label="Slide 8 of 9">
     <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
     <div class="slide-grain"></div>
     <div class="slide-content">
@@ -1149,7 +1193,7 @@
   </div>
 
   <!-- ───── SLIDE 9: CLOSING / NEXT STEPS ───── -->
-  <div class="slide" data-slide="8">
+  <div class="slide" data-slide="8" role="group" aria-roledescription="slide" aria-label="Slide 9 of 9">
     <div class="slide-bg" style="background: linear-gradient(135deg, #001852 0%, #003087 40%, #000d2e 100%);">
       <img class="closing-bg-img" src="/images/envision-floor.jpg" alt="" loading="lazy" decoding="async">
     </div>
@@ -1188,10 +1232,10 @@
     </div>
   </div>
 
-</div>
+</main>
 
 <!-- ── KEYBOARD HINT ── -->
-<div class="key-hint">
+<div class="key-hint" aria-hidden="true">
   <kbd>←</kbd> <kbd>→</kbd> to navigate
 </div>
 
@@ -1204,13 +1248,40 @@
   const currentEl = document.getElementById('currentSlide');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
+  const announcer = document.getElementById('slideAnnouncer');
 
   // Build dots
   for (let i = 0; i < totalSlides; i++) {
     const dot = document.createElement('button');
+    dot.type = 'button';
     dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1) + ' of ' + totalSlides);
+    if (i === 0) dot.setAttribute('aria-current', 'true');
     dot.onclick = () => goToSlide(i);
     dotsContainer.appendChild(dot);
+  }
+
+  // Expose only the active slide to assistive tech and the keyboard tab order.
+  function syncAccessibility() {
+    slides.forEach((slide, i) => {
+      const isActive = i === currentSlide;
+      slide.toggleAttribute('inert', !isActive);
+      slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+    });
+    Array.from(dotsContainer.children).forEach((dot, i) => {
+      if (i === currentSlide) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+    const heading = slides[currentSlide].querySelector('h1, h2');
+    const title = heading
+      ? heading.innerHTML
+          .replace(/<br\s*\/?>/gi, ' ')
+          .replace(/<[^>]+>/g, '')
+          .replace(/\s+/g, ' ')
+          .trim()
+      : '';
+    announcer.textContent = 'Slide ' + (currentSlide + 1) + ' of ' + totalSlides +
+      (title ? ': ' + title : '');
   }
 
   function goToSlide(n) {
@@ -1225,6 +1296,7 @@
     nextBtn.disabled = currentSlide === totalSlides - 1;
     // Reset scroll on new slide
     slides[currentSlide].scrollTop = 0;
+    syncAccessibility();
   }
 
   function changeSlide(dir) {
@@ -1252,6 +1324,7 @@
 
   // Init
   prevBtn.disabled = true;
+  syncAccessibility();
 </script>
 
 </body>
