@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Envision × Clearview Energy · Partnership Proposal</title>
+  <meta name="description" content="Contact center, commercial print, and community partnership for Clearview Energy, delivered from Envision's enterprise campus in Farmers Branch, Texas.">
+  <meta property="og:title" content="Envision × Clearview Energy · Partnership Proposal">
+  <meta property="og:description" content="One Texas partner for customer care, print, and community. Delivered from Envision's Dallas Campus.">
+  <meta property="og:image" content="/images/envision-logo-white.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="/images/envision-hand-logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #003087;
+      --blue-dark: #001852;
+      --blue-mid: #004bb5;
+      --green: #78BE21;
+      --green-dim: rgba(120,190,33,0.15);
+      --text-light: #ffffff;
+      --text-muted: #ffffff;
+      --bg-body: #000d2e;
+      --surface-card: rgba(0,24,82,0.52);
+      --border-dark: rgba(255,255,255,0.08);
+      --border-blue: rgba(0,48,135,0.15);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      background: var(--bg-body);
+      color: var(--text-light);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 3.5rem;
+      background: rgba(0,13,46,0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .logo {
+      font-weight: 800; font-size: 0.85rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: #fff;
+    }
+    .logo span { color: var(--green); }
+    .nav-controls {
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .slide-counter {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #ffffff;
+    }
+    .slide-counter .current { color: var(--green); font-weight: 700; }
+    .nav-dots {
+      display: flex; gap: 6px; align-items: center;
+    }
+    .nav-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: none; cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+    .nav-dot.active {
+      background: var(--green);
+      box-shadow: 0 0 8px rgba(120,190,33,0.5);
+    }
+    .nav-dot:hover:not(.active) {
+      background: rgba(255,255,255,0.35);
+    }
+    .nav-arrows {
+      display: flex; gap: 4px;
+    }
+    .nav-arrow {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      color: #ffffff;
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .nav-arrow:hover {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border-color: rgba(255,255,255,0.25);
+    }
+    .nav-arrow:disabled {
+      opacity: 0.25; cursor: default;
+    }
+
+    /* ── SLIDES CONTAINER ── */
+    .slides-wrapper {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+    .slide {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      padding-top: 58px;
+      overflow: hidden;
+    }
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ── SLIDE BACKGROUNDS ── */
+    .slide-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+    }
+    .slide-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,13,46,0.6) 0%, rgba(0,13,46,0.78) 45%, rgba(0,13,46,0.92) 100%);
+    }
+    .slide-grain {
+      position: absolute; inset: 0; opacity: 0.025; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ── CONTENT CONTAINERS ── */
+    .slide-content {
+      position: relative; z-index: 2;
+      max-width: 1100px; width: 100%;
+      padding: 1.5rem 4rem;
+    }
+    .slide-content.centered {
+      text-align: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: calc(100vh - 58px);
+      padding: 4rem;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .eyebrow {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 0.75rem;
+      display: inline-flex; align-items: center; gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: ''; display: block;
+      width: 22px; height: 1px; background: var(--green); opacity: 0.7;
+    }
+    h1 {
+      font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: normal; color: var(--green); }
+    h2 {
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+    h2 em { font-style: normal; color: var(--green); }
+    h3 {
+      font-size: 1.05rem; font-weight: 700;
+      line-height: 1.3; letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 0.88rem; color: var(--text-muted);
+      line-height: 1.6; max-width: 560px;
+    }
+    .subtitle.wide { max-width: 720px; }
+    .centered .subtitle { margin: 0 auto; }
+    p { line-height: 1.75; color: #ffffff; font-weight: 500; }
+
+    /* ── HERO SPECIFIC ── */
+    .hero-actions {
+      display: flex; gap: 1rem; margin-top: 2.5rem;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--green); color: #001852;
+      padding: 0.85rem 2rem; font-weight: 700; font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; border-radius: 2px; cursor: pointer;
+      transition: box-shadow 0.2s, opacity 0.2s;
+      display: inline-block; text-decoration: none;
+    }
+    .btn-primary:hover { opacity: 0.9; box-shadow: 0 0 28px rgba(120,190,33,0.4); }
+    .btn-ghost {
+      background: transparent; color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.85rem 2rem; font-weight: 600; font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block; text-decoration: none; cursor: pointer;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+    /* ── STATS BAND ── */
+    .stats-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.04);
+      margin: 1rem 0;
+      border: 1px solid var(--border-dark);
+    }
+    .stat-cell {
+      padding: 1.1rem 1rem;
+      background: rgba(0,13,46,0.6);
+      text-align: center;
+    }
+    .stat-n {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 800; letter-spacing: -0.03em; color: #fff;
+    }
+    .stat-n span { color: var(--green); }
+    .stat-l {
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #ffffff; margin-top: 0.5rem;
+    }
+
+    /* ── BENTO GRID ── */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.04);
+      margin: 1rem 0;
+    }
+    .bento-card {
+      background: rgba(0,13,46,0.75);
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .bento-card:hover { background: rgba(0,16,48,0.9); }
+    .bento-card.wide { grid-column: span 2; }
+    .bento-card.featured {
+      background: linear-gradient(140deg, #001852 0%, #002878 100%);
+      border-left: 2px solid var(--green);
+    }
+    .card-tag {
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .card-tag::before {
+      content: ''; display: block;
+      width: 12px; height: 1px; background: var(--green);
+    }
+    .bento-card h3 {
+      font-size: 0.92rem; font-weight: 700;
+      color: var(--text-light); margin-bottom: 0.35rem;
+    }
+    .bento-card p {
+      font-size: 0.78rem; line-height: 1.55;
+      color: #ffffff; font-weight: 500;
+    }
+
+    /* ── IMAGE CARDS IN BENTO ── */
+    .bento-img {
+      position: relative; overflow: hidden;
+      min-height: 120px;
+      background: linear-gradient(135deg, #001852, #003087);
+    }
+    .bento-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.45; transition: opacity 0.5s, transform 0.7s; display: block;
+    }
+    .bento-img:hover img { opacity: 0.6; transform: scale(1.03); }
+    .bento-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,13,46,0.95) 0%, rgba(0,13,46,0.3) 55%, transparent 100%);
+      display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 1.25rem;
+    }
+    .bento-img-overlay h3 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .bento-img-overlay p { font-size: 0.75rem; color: #ffffff; }
+
+    /* ── TWO COLUMN LAYOUT ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin: 1rem 0;
+    }
+    .two-col .col-text { }
+    .two-col .col-visual {
+      background: rgba(0,24,82,0.3);
+      border: 1px solid var(--border-dark);
+      padding: 2.25rem;
+      border-radius: 2px;
+    }
+
+    /* ── PROCESS FLOW ── */
+    .process-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin: 1rem 0;
+      background: rgba(255,255,255,0.04);
+    }
+    .process-step {
+      background: rgba(0,13,46,0.75);
+      padding: 1.1rem 1rem;
+      position: relative;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+    .step-num {
+      font-size: 1.8rem; font-weight: 800;
+      color: var(--green);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.4rem;
+    }
+    .process-step h3 {
+      font-size: 0.78rem; font-weight: 700;
+      margin-bottom: 0.4rem; text-align: center;
+    }
+    .process-step p {
+      font-size: 0.7rem; line-height: 1.55;
+      color: #ffffff; font-weight: 500;
+      margin-top: auto;
+    }
+    .process-step::after {
+      content: '→';
+      position: absolute; right: -8px; top: 50%;
+      transform: translateY(-50%);
+      color: rgba(120,190,33,0.6);
+      font-size: 1.1rem; font-weight: 700;
+      z-index: 3;
+    }
+    .process-step:last-child::after { display: none; }
+
+    /* ── PRODUCT CATEGORY CARDS ── */
+    .product-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.04);
+      margin: 1rem 0;
+    }
+    .product-card {
+      background: rgba(0,13,46,0.75);
+      padding: 1.25rem 1.25rem;
+      position: relative;
+      border-top: 2px solid transparent;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      background: rgba(0,16,48,0.9);
+      border-top-color: var(--green);
+    }
+    .product-icon {
+      width: 36px; height: 36px;
+      background: rgba(120,190,33,0.08);
+      border: 1px solid rgba(120,190,33,0.15);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+    .product-card h3 {
+      font-size: 0.92rem; margin-bottom: 0.35rem;
+    }
+    .product-card p {
+      font-size: 0.78rem; line-height: 1.55;
+      color: #ffffff; font-weight: 500;
+    }
+    .product-meta {
+      margin-top: auto;
+      padding-top: 0.6rem;
+      border-top: 1px solid var(--border-dark);
+    }
+    .product-meta span {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--green);
+    }
+
+    /* ── COMPLIANCE BADGES ── */
+    .compliance-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin: 1rem 0;
+      background: rgba(255,255,255,0.04);
+    }
+    .compliance-badge {
+      background: rgba(0,13,46,0.75);
+      padding: 1.1rem;
+      display: flex; align-items: center; gap: 1rem;
+      transition: background 0.2s;
+    }
+    .compliance-badge:hover { background: rgba(0,16,48,0.9); }
+    .badge-icon {
+      width: 40px; height: 40px; min-width: 40px;
+      background: rgba(120,190,33,0.06);
+      border: 1px solid rgba(120,190,33,0.12);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 800;
+      color: var(--green); letter-spacing: 0.05em;
+    }
+    .badge-text h3 {
+      font-size: 0.82rem; margin-bottom: 0.2rem;
+    }
+    .badge-text p {
+      font-size: 0.72rem; color: #ffffff; line-height: 1.5; font-weight: 500;
+    }
+
+    /* ── PARTNERSHIP CARDS ── */
+    .partnership-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin: 1rem 0;
+      background: rgba(255,255,255,0.04);
+    }
+    .partner-card {
+      background: rgba(0,13,46,0.75);
+      padding: 1.25rem;
+      transition: background 0.2s;
+    }
+    .partner-card:hover { background: rgba(0,16,48,0.9); }
+    .partner-card.highlight {
+      background: linear-gradient(140deg, #001852 0%, #002878 100%);
+      border-left: 2px solid var(--green);
+      grid-column: span 2;
+    }
+
+    /* ── IMPACT LINE (Slide 6) ── */
+    .impact-line {
+      margin-top: 0.75rem;
+      padding: 0.7rem 0.95rem;
+      background: rgba(120,190,33,0.06);
+      border-left: 2px solid var(--green);
+      border-radius: 2px;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: #ffffff;
+      font-weight: 500;
+      max-width: 720px;
+    }
+    .impact-line span {
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── VALUE TEASE STRIP (Slide 8) ── */
+    .value-tease {
+      margin-top: 1rem;
+      padding: 0.95rem 1.1rem 1.05rem;
+      background: rgba(0,24,82,0.28);
+      border: 1px solid var(--border-dark);
+      border-left: 2px solid var(--green);
+      border-radius: 2px;
+    }
+    .tease-header {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+    }
+    .tease-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .tease-item h4 {
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--text-light); margin-bottom: 0.3rem;
+      line-height: 1.3; letter-spacing: -0.01em;
+    }
+    .tease-item p {
+      font-size: 0.74rem; line-height: 1.55;
+      color: #ffffff;
+      font-weight: 500;
+    }
+    .value-tease.unlock-glow {
+      position: relative;
+      border: 1px solid rgba(120,190,33,0.45);
+      border-left: 2px solid var(--green);
+      box-shadow:
+        0 0 0 1px rgba(120,190,33,0.08),
+        0 0 28px rgba(120,190,33,0.18),
+        inset 0 0 24px rgba(120,190,33,0.04);
+    }
+    .unlock-word {
+      color: var(--green);
+      font-weight: 800;
+      text-shadow: 0 0 14px rgba(120,190,33,0.55);
+    }
+    @keyframes unlockReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.99);
+        border-color: rgba(120,190,33,0);
+        box-shadow:
+          0 0 0 1px rgba(120,190,33,0),
+          0 0 0 rgba(120,190,33,0),
+          inset 0 0 0 rgba(120,190,33,0);
+      }
+      55% {
+        opacity: 1;
+        transform: translateY(0) scale(1.003);
+        border-color: rgba(120,190,33,0.9);
+        box-shadow:
+          0 0 0 1px rgba(120,190,33,0.35),
+          0 0 60px rgba(120,190,33,0.5),
+          inset 0 0 36px rgba(120,190,33,0.1);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        border-color: rgba(120,190,33,0.45);
+        box-shadow:
+          0 0 0 1px rgba(120,190,33,0.08),
+          0 0 28px rgba(120,190,33,0.18),
+          inset 0 0 24px rgba(120,190,33,0.04);
+      }
+    }
+    @keyframes unlockWordGlow {
+      0%   { text-shadow: 0 0 0 rgba(120,190,33,0); }
+      55%  { text-shadow: 0 0 22px rgba(120,190,33,0.95); }
+      100% { text-shadow: 0 0 14px rgba(120,190,33,0.55); }
+    }
+    .slide.active .value-tease.unlock-glow {
+      animation: unlockReveal 1.1s 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+    .slide.active .value-tease.unlock-glow .unlock-word {
+      animation: unlockWordGlow 1.1s 0.8s ease both;
+    }
+
+    /* ── CLOSING SLIDE ── */
+    .close-block {
+      margin-top: 1rem;
+      padding: 1.25rem;
+      background: rgba(0,24,82,0.25);
+      border: 1px solid var(--border-dark);
+      border-radius: 2px;
+      max-width: 640px;
+    }
+    .close-block p {
+      font-size: 0.88rem;
+      color: #ffffff;
+      line-height: 1.75;
+      font-weight: 500;
+    }
+
+    /* ── IMAGE BREAK (between slides) ── */
+    .img-break-inline {
+      position: relative;
+      height: 90px;
+      overflow: hidden;
+      margin: 1rem 0;
+      width: 100%;
+      border: 1px solid var(--border-dark);
+    }
+    .img-break-inline .slide-bg {
+      background: linear-gradient(135deg, #001852 0%, #003087 50%, #001030 100%);
+    }
+    .img-break-inline .slide-overlay {
+      background: linear-gradient(90deg, rgba(0,13,46,0.97) 0%, rgba(0,24,82,0.7) 50%, rgba(0,13,46,0.4) 100%);
+    }
+    .img-break-inline blockquote {
+      position: relative; z-index: 2;
+      max-width: none;
+      padding: 0;
+      height: 100%;
+      display: flex; align-items: center;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 700; line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+    .img-break-inline blockquote span { color: var(--green); }
+
+    /* ── SCROLL HINT ── */
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: #ffffff;
+      font-size: 0.58rem; letter-spacing: 0.18em;
+      text-transform: uppercase; font-weight: 600; z-index: 2;
+    }
+    .scroll-line {
+      width: 1px; height: 28px;
+      background: linear-gradient(to bottom, rgba(120,190,33,0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+    /* ── ENTRANCE ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slide.active .eyebrow { animation: fadeUp 0.5s 0.15s ease both; }
+    .slide.active h1,
+    .slide.active h2 { animation: fadeUp 0.6s 0.25s ease both; }
+    .slide.active .subtitle { animation: fadeUp 0.6s 0.38s ease both; }
+    .slide.active .hero-actions { animation: fadeUp 0.6s 0.5s ease both; }
+    .slide.active .stats-band,
+    .slide.active .bento,
+    .slide.active .process-flow,
+    .slide.active .product-cards,
+    .slide.active .compliance-row,
+    .slide.active .partnership-grid,
+    .slide.active .two-col,
+    .slide.active .close-block { animation: fadeUp 0.6s 0.4s ease both; }
+
+    /* ── CLOSING SLIDE HALLWAY ZOOM ── */
+    @keyframes hallwayZoom {
+      from { transform: scale(1); }
+      to   { transform: scale(1.22); }
+    }
+    .closing-bg-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.23;
+      transform-origin: center center;
+    }
+    .slide.active .closing-bg-img {
+      animation: hallwayZoom 28s ease-out both;
+    }
+
+    /* ── KEYBOARD HINT ── */
+    .key-hint {
+      position: fixed; bottom: 1.5rem; right: 3.5rem;
+      font-size: 0.58rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #ffffff; z-index: 50;
+    }
+    .key-hint kbd {
+      display: inline-block;
+      padding: 2px 6px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem;
+      margin: 0 2px;
+    }
+
+    /* ── CLOSING SLIDE ── */
+    .logo-mark {
+      font-size: 2.4rem; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #fff;
+    }
+    .logo-mark span { color: var(--green); }
+    .contact-cards {
+      display: flex; gap: 2px; justify-content: center;
+      margin-top: 1rem;
+    }
+    .contact-card {
+      background: rgba(0,24,82,0.4);
+      border: 1px solid var(--border-dark);
+      padding: 1.25rem 2.5rem;
+      text-align: center;
+      min-width: 260px;
+    }
+    .contact-role {
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 1rem;
+    }
+    .contact-name {
+      font-size: 1.15rem; font-weight: 700;
+      color: #fff; margin-bottom: 0.3rem;
+    }
+    .contact-title {
+      font-size: 0.78rem; font-weight: 500;
+      color: #ffffff; margin-bottom: 0.75rem;
+    }
+    .contact-info {
+      font-size: 0.72rem; font-weight: 500;
+      color: #ffffff;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .slide-content { padding: 2rem 1.5rem; }
+      .slide-content.centered { padding: 3rem 1.5rem; }
+      .bento { grid-template-columns: 1fr; }
+      .bento-card.wide { grid-column: span 1; }
+      .stats-band { grid-template-columns: repeat(2, 1fr); }
+      .two-col { grid-template-columns: 1fr; gap: 2rem; }
+      .process-flow { grid-template-columns: repeat(2, 1fr); }
+      .process-step::after { display: none; }
+      .product-cards { grid-template-columns: 1fr; }
+      .compliance-row { grid-template-columns: 1fr; }
+      .partnership-grid { grid-template-columns: 1fr; }
+      .partner-card.highlight { grid-column: span 1; }
+      .tease-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+      .nav-dots { display: none; }
+      .key-hint { display: none; }
+      .contact-cards { flex-direction: column; align-items: center; }
+      .img-break-inline { margin: 1.5rem 0; width: 100%; }
+      .img-break-inline blockquote { padding: 0; font-size: 1rem; }
+    }
+
+    /* ── HERO CROSSFADE CONTAINER ── */
+    .hero-slideshow {
+      position: absolute; inset: 0;
+    }
+    .hero-slideshow .hero-bg-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+    }
+    .hero-slideshow .hero-bg-img:nth-child(1) {
+      animation: heroCrossfade 12s ease-in-out infinite;
+    }
+    .hero-slideshow .hero-bg-img:nth-child(2) {
+      animation: heroCrossfade 12s ease-in-out infinite -6s;
+    }
+    .hero-slideshow .hero-bg-img:nth-child(3) {
+      animation: heroCrossfade 18s ease-in-out infinite -12s;
+    }
+    @keyframes heroCrossfade {
+      0%, 28% { opacity: 1; }
+      33%, 95% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════ NAV ════════════════════════════════════════ -->
+<nav>
+  <div class="logo"><img src="/images/envision-hand-logo.png" alt="Envision" style="height: 24px;"></div>
+  <div class="nav-controls">
+    <div class="nav-dots" id="navDots"></div>
+    <div class="slide-counter">
+      <span class="current" id="currentSlide">01</span> / <span id="totalSlides">09</span>
+    </div>
+    <div class="nav-arrows">
+      <button class="nav-arrow" id="prevBtn" onclick="changeSlide(-1)">←</button>
+      <button class="nav-arrow" id="nextBtn" onclick="changeSlide(1)">→</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════ SLIDES ════════════════════════════════════════ -->
+<div class="slides-wrapper">
+
+  <!-- ───── SLIDE 1: HERO ───── -->
+  <div class="slide active" data-slide="0">
+    <div class="slide-bg" style="background: linear-gradient(135deg, #001852 0%, #003087 40%, #000d2e 100%);">
+      <div class="hero-slideshow">
+        <img class="hero-bg-img" src="/images/envision-floor.jpg" alt="">
+        <img class="hero-bg-img" src="/images/envision-hero.jpg" alt="">
+        <img class="hero-bg-img" src="/images/envision-feature.jpg" alt="">
+      </div>
+    </div>
+    <div class="slide-overlay"></div>
+    <div class="slide-grain"></div>
+    <div class="slide-content centered">
+      <img src="/images/envision-logo-white.png" alt="Envision" style="height: 48px; margin-bottom: 1.5rem;">
+      <div class="eyebrow">Prepared for Clearview Energy</div>
+      <h1>The Partner Behind<br><em>Your Customer Experience.</em></h1>
+      <p class="subtitle">Envision delivers contact center, commercial print, and community partnership from an enterprise campus in Farmers Branch. One Texas source for the customer care, the materials, and the local impact that define the Clearview brand.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="goToSlide(3)">Explore Contact Center</button>
+        <button class="btn-ghost" onclick="goToSlide(1)">Why Envision</button>
+      </div>
+      <div class="scroll-hint">
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── SLIDE 2: WHO ENVISION IS ───── -->
+  <div class="slide" data-slide="1">
+    <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
+    <div class="slide-grain"></div>
+    <div class="slide-content">
+      <div class="eyebrow">About Envision</div>
+      <h2>Enterprise Operations.<br><em>Right Here in Dallas.</em></h2>
+      <p class="subtitle wide">A 90-year U.S. operator running manufacturing, contact center, and print services across two campuses. The Dallas Campus you are standing in anchors 235,000 square feet of capability in Farmers Branch, minutes from Clearview's downtown headquarters.</p>
+
+      <div class="stats-band">
+        <div class="stat-cell">
+          <div class="stat-n">410<span>K+</span></div>
+          <div class="stat-l">Sq. Ft. Across Two Campuses</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-n">460</div>
+          <div class="stat-l">Total Employees</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-n">90<span>+</span></div>
+          <div class="stat-l">Years U.S. Operations<br><span style="font-size:0.85em;">Since the 1930s</span></div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-n">Dallas</div>
+          <div class="stat-l">Campus in Farmers Branch</div>
+        </div>
+      </div>
+
+      <div class="bento">
+        <div class="bento-card featured wide">
+          <div class="card-tag">Core Advantage</div>
+          <h3>One Operator. Three Services Clearview Needs.</h3>
+          <p>Contact center, commercial print, and community partnership delivered under one roof, on enterprise systems, by a single Texas vendor. No stitching together suppliers, and no offshore dependencies.</p>
+        </div>
+        <!-- IMAGE SLOT: Dallas Campus exterior (Farmers Branch) or production-floor candid. Swap with envision-dallas-building-exterior.png from the capabilities repo when available. -->
+        <div class="bento-img">
+          <img src="/images/production-inspection.jpg" alt="Envision, Dallas Campus operations">
+          <div class="bento-img-overlay">
+            <h3>Envision, Dallas Campus</h3>
+            <p>1801 Valley View Lane, Farmers Branch, TX</p>
+          </div>
+        </div>
+        <!-- END IMAGE SLOT -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── SLIDE 3: WHY ENVISION FITS CLEARVIEW ───── -->
+  <div class="slide" data-slide="2">
+    <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
+    <div class="slide-grain"></div>
+    <div class="slide-content">
+      <div class="eyebrow">Why Envision</div>
+      <h2>Built Around the Values<br><em>Clearview Leads With.</em></h2>
+      <p class="subtitle wide">Clearview's brand stands on customer service, community, and doing right by the people it serves. Envision delivers on all three as an operating partner, not a slogan. Three capabilities, one relationship.</p>
+
+      <div class="product-cards">
+        <div class="product-card">
+          <div class="product-icon">☎</div>
+          <h3>Contact Center</h3>
+          <p>The world-class customer care your brand promises, delivered by trained U.S. agents who handle enrollment, support, and retention.</p>
+          <div class="product-meta">
+            <span>Your Customer Service</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">⎙</div>
+          <h3>Commercial Print &amp; Storefront</h3>
+          <p>Enrollment kits, direct mail, and field collateral produced on the same campus, fronted by a walk-in print storefront.</p>
+          <div class="product-meta">
+            <span>Made in Texas</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">❖</div>
+          <h3>Foundation Partnership</h3>
+          <p>The kind of local, visible community organization Clearview already chooses to back, right in your own market.</p>
+          <div class="product-meta">
+            <span>Your Community Commitment</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="impact-line"><span>This is the meeting in one line.</span> The customer service, the print, and the community work Clearview already values, available from a single partner in Farmers Branch.</p>
+    </div>
+  </div>
+
+  <!-- ───── SLIDE 4: CONTACT CENTER ───── -->
+  <div class="slide" data-slide="3">
+    <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
+    <div class="slide-grain"></div>
+    <div class="slide-content">
+      <div class="eyebrow">Contact Center</div>
+      <h2>Customer Care.<br><em>Delivered to Your Standard.</em></h2>
+      <p class="subtitle wide">Envision operates a U.S.-based contact center. Inbound and outbound support, enrollment assistance, and retention handling, staffed by trained agents and built to scale with your customer base.</p>
+      <p class="impact-line"><span>Directly supports</span> the world-class customer service Clearview's brand is built on, from a Texas operation in your own backyard.</p>
+
+      <div class="bento">
+        <div class="bento-card featured">
+          <div class="card-tag">Capability</div>
+          <h3>Inbound &amp; Outbound Support</h3>
+          <p>Customer service calls, enrollment support, billing questions, and proactive outbound campaigns. Coverage across phone, email, and chat.</p>
+        </div>
+        <div class="bento-card">
+          <div class="card-tag">Coverage</div>
+          <h3>Scalable Agent Capacity</h3>
+          <p>Capacity that flexes with enrollment cycles and seasonal demand. Overflow and after-hours support available.</p>
+        </div>
+        <!-- IMAGE SLOT: Envision contact center agent at workstation wearing a headset. Swap with DSC_6255.jpg from the capabilities repo. -->
+        <div class="bento-img">
+          <img src="/images/envision-feature.jpg" alt="Envision contact center operations">
+          <div class="bento-img-overlay">
+            <h3>U.S.-Based Agents</h3>
+            <p>On-shore customer care, never offshore</p>
+          </div>
+        </div>
+        <!-- END IMAGE SLOT -->
+        <div class="bento-card">
+          <div class="card-tag">Quality</div>
+          <h3>Trained, Monitored, Measured</h3>
+          <p>Agent training, call quality monitoring, and performance reporting. Service levels defined and tracked to your requirements.</p>
+        </div>
+        <div class="bento-card wide">
+          <div class="card-tag">Why It Fits</div>
+          <h3>A Workforce Known for Staying</h3>
+          <p>The agents on the floor include people who are blind or have low vision, a workforce with retention well above industry average. Lower turnover means a more consistent voice answering for Clearview, quarter after quarter.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── SLIDE 5: PRINT + STOREFRONT ───── -->
+  <div class="slide" data-slide="4">
+    <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
+    <div class="slide-grain"></div>
+    <div class="slide-content">
+      <div class="eyebrow">Commercial Print</div>
+      <h2>Print Production.<br><em>From the Storefront Up.</em></h2>
+      <p class="subtitle wide">Envision runs a full commercial print operation fronted by a customer-facing storefront. Enrollment kits, direct mail, field-sales collateral, signage, and branded materials, produced and fulfilled on the Dallas Campus.</p>
+
+      <div class="product-cards">
+        <div class="product-card">
+          <div class="product-icon">▣</div>
+          <h3>The Print Storefront</h3>
+          <p>A walk-in, order-online storefront for short-run and on-demand print. The front door to Envision's full production floor, and the easiest place for your team to start.</p>
+          <div class="product-meta">
+            <span>Highlighted Capability</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">✉</div>
+          <h3>Direct Mail &amp; Enrollment Kits</h3>
+          <p>High-volume direct mail, welcome packets, and enrollment materials supporting residential and commercial customer acquisition.</p>
+          <div class="product-meta">
+            <span>Customer Acquisition</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">◧</div>
+          <h3>Field &amp; Branded Collateral</h3>
+          <p>Door-to-door and event materials, signage, and branded print that carry the Clearview look consistently into the field.</p>
+          <div class="product-meta">
+            <span>Brand in Market</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="impact-line"><span>On the tour:</span> the print storefront is a live stop. See the front counter, then the production floor that backs it.</p>
+    </div>
+  </div>
+
+  <!-- ───── SLIDE 6: FOUNDATION / COMMUNITY ───── -->
+  <div class="slide" data-slide="5">
+    <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
+    <div class="slide-grain"></div>
+    <div class="slide-content">
+      <div class="eyebrow">Community Partnership</div>
+      <h2>The Community Work<br><em>Clearview Already Believes In.</em></h2>
+      <p class="subtitle wide">Clearview backs organizations making a real difference. Envision's Dallas Foundation is exactly that kind of partner: local, visible, and rooted in measurable community impact you can stand behind.</p>
+
+      <div class="partnership-grid">
+        <div class="partner-card">
+          <div class="card-tag">Sponsorship</div>
+          <h3>Cause Partnership</h3>
+          <p>Event sponsorship, cause marketing, and visible community alignment with a Dallas institution serving people who are blind or have low vision.</p>
+        </div>
+        <div class="partner-card">
+          <div class="card-tag">Volunteering</div>
+          <h3>Employee Volunteer Days</h3>
+          <p>Hands-on volunteer experiences on the Dallas Campus for the Clearview team. Service that shows up in your culture and your community.</p>
+        </div>
+        <div class="partner-card highlight">
+          <div class="card-tag">Shared Story</div>
+          <h3>A Partnership You Can Show Your Customers</h3>
+          <p>Aligning with Envision's Dallas Foundation gives Clearview a local, credible community story to tell. The kind of impact that strengthens a customer-first, community-minded brand and gives your marketing something real to point to.</p>
+        </div>
+      </div>
+
+      <p class="impact-line"><span>A natural fit</span> for Clearview's micro-sponsorship and community commitment, with volunteer pathways your team can join.</p>
+    </div>
+  </div>
+
+  <!-- ───── SLIDE 7: THE ENVISION DIFFERENCE ───── -->
+  <div class="slide" data-slide="6">
+    <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
+    <div class="slide-grain"></div>
+    <div class="slide-content">
+      <div class="eyebrow">The Envision Difference</div>
+      <h2>A Workforce That Sets Us Apart.<br><em>And Your Brand With It.</em></h2>
+      <p class="subtitle wide">Envision is one of the nation's largest employers of people who are blind or have low vision. That model drives retention, dedication, and a partnership story no offshore vendor can offer.</p>
+
+      <div class="stats-band">
+        <div class="stat-cell">
+          <div class="stat-n">88<span>%</span></div>
+          <div class="stat-l">Workforce Who Are Blind or Have Low Vision</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-n">90<span>+</span></div>
+          <div class="stat-l">Years of Continuous U.S. Operations</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-n">1</div>
+          <div class="stat-l">Texas Partner You Can Visit and Audit</div>
+        </div>
+      </div>
+
+      <div class="bento">
+        <div class="bento-card featured wide">
+          <div class="card-tag">Mission as Advantage</div>
+          <h3>Performance and Purpose, Same Decision</h3>
+          <p>The workforce that answers your calls and prints your materials is the same workforce that makes Envision a community partner worth aligning with. Choosing Envision is an operations decision and a brand decision at once.</p>
+        </div>
+        <!-- IMAGE SLOT: Envision floor or team candid. Currently using available operations photography. -->
+        <div class="bento-img">
+          <img src="/images/envision-floor.jpg" alt="Envision operations floor">
+          <div class="bento-img-overlay">
+            <h3>One Source. Real Accountability.</h3>
+            <p>Care, print, and community in one relationship</p>
+          </div>
+        </div>
+        <!-- END IMAGE SLOT -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── SLIDE 8: PARTNERSHIP MODEL ───── -->
+  <div class="slide" data-slide="7">
+    <div class="slide-bg" style="background: linear-gradient(160deg, #000d2e 0%, #001852 100%);"></div>
+    <div class="slide-grain"></div>
+    <div class="slide-content">
+      <div class="eyebrow">Partnership Model</div>
+      <h2>One Texas Partner.<br><em>Across Every Touchpoint.</em></h2>
+      <p class="subtitle wide">Start with the highest-value need, then expand across services on the same relationship. A single Dallas partner for customer care, print, and community.</p>
+
+      <div class="partnership-grid">
+        <div class="partner-card">
+          <div class="card-tag">Start</div>
+          <h3>Lead With the Contact Center</h3>
+          <p>Stand up contact center support where it delivers immediate impact on customer experience and retention.</p>
+        </div>
+        <div class="partner-card">
+          <div class="card-tag">Expand</div>
+          <h3>Add Print &amp; Community</h3>
+          <p>Layer in commercial print and Foundation partnership on the same relationship, with no new vendor onboarding.</p>
+        </div>
+        <div class="partner-card highlight">
+          <div class="card-tag">Local Advantage</div>
+          <h3>Two Dallas Companies, One Backyard</h3>
+          <p>Clearview downtown, Envision in Farmers Branch. A local partnership that is easy to manage, easy to visit, and easy to put in front of your customers.</p>
+        </div>
+      </div>
+
+      <div class="value-tease unlock-glow">
+        <h3 class="tease-header">What This Partnership <span class="unlock-word">Unlocks</span></h3>
+        <div class="tease-grid">
+          <div class="tease-item">
+            <h4>On-Shore Customer Care</h4>
+            <p>U.S.-based agents protecting the experience your brand is known for.</p>
+          </div>
+          <div class="tease-item">
+            <h4>Single-Vendor Simplicity</h4>
+            <p>Care, print, and community managed through one Texas relationship.</p>
+          </div>
+          <div class="tease-item">
+            <h4>A Community Story</h4>
+            <p>Local impact your marketing can put in front of customers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── SLIDE 9: CLOSING / NEXT STEPS ───── -->
+  <div class="slide" data-slide="8">
+    <div class="slide-bg" style="background: linear-gradient(135deg, #001852 0%, #003087 40%, #000d2e 100%);">
+      <img class="closing-bg-img" src="/images/envision-floor.jpg" alt="">
+    </div>
+    <div class="slide-overlay" style="background: linear-gradient(to bottom, rgba(0,13,46,0.5) 0%, rgba(0,13,46,0.75) 50%, rgba(0,13,46,0.9) 100%);"></div>
+    <div class="slide-grain"></div>
+    <div class="slide-content centered">
+      <img src="/images/envision-logo-white.png" alt="Envision" style="height: 48px;">
+      <div class="eyebrow" style="margin-top: 2rem;">Next Steps</div>
+      <h2>Let's Build It <em>Together.</em></h2>
+      <p class="subtitle" style="margin-bottom: 1.5rem;">Today: tour the Dallas Campus and see the contact center, the print storefront, and the Foundation firsthand. Next: scope the contact center opportunity and define where the partnership starts.</p>
+
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-role">Primary Contact</div>
+          <div class="contact-name">Sebastian Zahr</div>
+          <div class="contact-title">Chief Revenue &amp; Strategy Officer</div>
+          <div class="contact-info">sebastian.zahr@envisionus.com</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-role">Contact Center</div>
+          <div class="contact-name">Andy Hoffman</div>
+          <div class="contact-title">Manager, Contact Center and Mailroom Operations</div>
+          <div class="contact-info">andy.hoffman@envisionus.com</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-role">Operations</div>
+          <div class="contact-name">Patrick Tuttle</div>
+          <div class="contact-title">Senior Vice President, Operations and New Product Development</div>
+          <div class="contact-info">patrick.tuttle@envisionus.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── KEYBOARD HINT ── -->
+<div class="key-hint">
+  <kbd>←</kbd> <kbd>→</kbd> to navigate
+</div>
+
+<!-- ════════════════════════════════════════ JS ════════════════════════════════════════ -->
+<script>
+  let currentSlide = 0;
+  const totalSlides = 9;
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('navDots');
+  const currentEl = document.getElementById('currentSlide');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  // Build dots
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(dot);
+  }
+
+  function goToSlide(n) {
+    if (n < 0 || n >= totalSlides) return;
+    slides[currentSlide].classList.remove('active');
+    dotsContainer.children[currentSlide].classList.remove('active');
+    currentSlide = n;
+    slides[currentSlide].classList.add('active');
+    dotsContainer.children[currentSlide].classList.add('active');
+    currentEl.textContent = String(currentSlide + 1).padStart(2, '0');
+    prevBtn.disabled = currentSlide === 0;
+    nextBtn.disabled = currentSlide === totalSlides - 1;
+    // Reset scroll on new slide
+    slides[currentSlide].scrollTop = 0;
+  }
+
+  function changeSlide(dir) {
+    goToSlide(currentSlide + dir);
+  }
+
+  // Keyboard nav
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); changeSlide(1); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); changeSlide(-1); }
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
+  document.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 60) {
+      if (diff > 0) changeSlide(1);
+      else changeSlide(-1);
+    }
+  });
+
+  // Init
+  prevBtn.disabled = true;
+</script>
+
+</body>
+</html>
