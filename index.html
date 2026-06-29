@@ -300,6 +300,32 @@
     .bento-img-overlay h3 { font-size: 0.95rem; margin-bottom: 0.3rem; }
     .bento-img-overlay p { font-size: 0.75rem; color: #ffffff; }
 
+    /* ── CLEARER IMAGE VARIANT (less dimming, lighter overlay) ── */
+    .bento-img.bento-img--clear img {
+      opacity: 0.95;
+    }
+    .bento-img.bento-img--clear:hover img { opacity: 1; }
+    .bento-img.bento-img--clear .bento-img-overlay {
+      background: linear-gradient(to top, rgba(0,13,46,0.88) 0%, rgba(0,13,46,0.2) 38%, transparent 65%);
+    }
+
+    /* ── PORTRAIT BENTO (Slide 7): smaller text box, larger photo, head aligned to top ── */
+    .bento.bento--portrait {
+      grid-template-columns: 0.92fr 1.08fr;
+    }
+    .bento.bento--portrait .bento-card.featured {
+      grid-column: auto;
+    }
+    .bento.bento--portrait .bento-img {
+      height: clamp(280px, 44vh, 460px);
+      min-height: 0;
+    }
+    .bento.bento--portrait .bento-img img {
+      opacity: 0.95;
+      object-position: center top;
+    }
+    .bento.bento--portrait .bento-img:hover img { opacity: 1; }
+
     /* ── TWO COLUMN LAYOUT ── */
     .two-col {
       display: grid;
@@ -761,7 +787,7 @@
 
 <!-- ════════════════════════════════════════ NAV ════════════════════════════════════════ -->
 <nav>
-  <div class="logo"><img src="/images/envision-hand-logo.png" alt="Envision" style="height: 24px;"></div>
+  <div class="logo"><img src="/images/envision-hand-logo.png" alt="Envision" style="height: 30px; display: block;"></div>
   <div class="nav-controls">
     <div class="nav-dots" id="navDots"></div>
     <div class="slide-counter">
@@ -966,8 +992,8 @@
         </div>
       </div>
 
-      <div class="bento-img" style="margin-top: 1rem; min-height: 0; height: 140px; border-radius: 2px;">
-        <img src="/images/print-mail-kit.jpg" alt="Envision-branded commercial print and direct-mail kit produced on the Dallas Campus" loading="lazy" decoding="async">
+      <div class="bento-img bento-img--clear" style="margin-top: 1rem; min-height: 0; height: 180px; border-radius: 2px;">
+        <img src="/images/print-mail-kit.jpg" alt="Envision-branded commercial print and direct-mail kit produced on the Dallas Campus" loading="lazy" decoding="async" style="object-position: center 42%;">
         <div class="bento-img-overlay" style="padding: 0.85rem 1.25rem;">
           <p>Branded print and direct-mail kits, produced on the Dallas Campus</p>
         </div>
@@ -1032,8 +1058,8 @@
         </div>
       </div>
 
-      <div class="bento">
-        <div class="bento-card featured wide">
+      <div class="bento bento--portrait">
+        <div class="bento-card featured">
           <div class="card-tag">Mission as Advantage</div>
           <h3>Performance and Purpose, Same Decision</h3>
           <p>The workforce that answers your calls and prints your materials is the same workforce that makes Envision a community partner worth aligning with. Choosing Envision is an operations decision and a brand decision at once.</p>
